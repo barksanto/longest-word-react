@@ -1,4 +1,4 @@
-import React, { setState, useState } from 'react';
+import React from 'react';
 
 require('dotenv').config();
 console.log(process.env)
@@ -38,7 +38,7 @@ const InputBox = () => {
   return (
     <div>
       <form id="nameform">
-        <label for="fname">Your guess</label>
+        <label htmlFor="fname">Your guess: </label>
         <input type="text" id="fname" name="fname" className="userInput" spellCheck="true" />
       </form>
       <button type="submit" form="nameform" value="Submit" onClick={captureGuess}>Submit</button>

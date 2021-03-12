@@ -9,8 +9,10 @@ function App() {
       <div>I'm the App component</div>
       <h1>Welcome to the longest word game!</h1>
       <RandomLetters />
+      <br />
+      <br />
+      <br />
       <InputBox />
-
     </div>
   );
 }
