@@ -19,7 +19,9 @@ const RandomLetters = () => {
     <div>
       random letters component
       {
-
+        randomLetters.map(letter => {
+          return (<div>{letter}</div>)
+        })
       }
     </div>
   );
