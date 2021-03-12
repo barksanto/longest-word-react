@@ -1,4 +1,5 @@
 import React, { setState, useState } from 'react';
+
 require('dotenv').config();
 console.log(process.env)
 
@@ -7,7 +8,7 @@ console.log(process.env)
 // appkey
 
 
-const Letters = () => {
+const InputBox = () => {
 
   let word = '';
 
@@ -30,7 +31,7 @@ const Letters = () => {
       .catch(err => {
         console.error(err);
       });
-    console.log(word)
+    console.log(word);
     inputGuess.value = '';
   }
 
@@ -41,9 +42,8 @@ const Letters = () => {
         <input type="text" id="fname" name="fname" className="userInput" spellCheck="true" />
       </form>
       <button type="submit" form="nameform" value="Submit" onClick={captureGuess}>Submit</button>
-
     </div>
   );
 }
 
-export default Letters;
+export default InputBox;
