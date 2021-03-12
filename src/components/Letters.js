@@ -1,4 +1,5 @@
 import React, { setState, useState } from 'react';
+require('dotenv').config();
 
 
 // baseurl
