@@ -9,9 +9,9 @@ console.log(process.env)
 
 const Letters = () => {
 
-  let word = 'dog';
+  let word = '';
 
-  const inputGuess = document.getElementById('fname');
+  const inputGuess = document.querySelector('.userInput');
 
   const captureGuess = (e) => {
     e.preventDefault();
@@ -31,15 +31,14 @@ const Letters = () => {
         console.error(err);
       });
     console.log(word)
+    inputGuess.value = '';
   }
 
   return (
     <div>
-      <div>I'm the Letters Component</div>
-
       <form id="nameform">
         <label for="fname">Your guess</label>
-        <input type="text" id="fname" name="fname" spellCheck="true" />
+        <input type="text" id="fname" name="fname" className="userInput" spellCheck="true" />
       </form>
       <button type="submit" form="nameform" value="Submit" onClick={captureGuess}>Submit</button>
 
