@@ -21,7 +21,7 @@ const RandomLetters = () => {
       <div className="row justify-content-center">
         {
           randomLetters.map(letter => {
-            return (<div className="col-1">{letter}</div>)
+            return (<div className="col-1" key={Math.random()}>{letter}</div>)
           })
         }
       </div>
