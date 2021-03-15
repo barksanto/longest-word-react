@@ -17,7 +17,7 @@ const InputBox = () => {
   const captureGuess = (e) => {
     e.preventDefault();
     word = inputGuess.value;
-
+    let userGuess = word
     fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {
       "method": "GET",
       "headers": {
@@ -32,7 +32,8 @@ const InputBox = () => {
         console.error(err);
       });
     console.log(word);
-    inputGuess.value = '';
+    console.log(userGuess);
+    // inputGuess.value = '';
   }
 
   return (

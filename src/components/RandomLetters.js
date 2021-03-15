@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/random-letter.css'
 
 const RandomLetters = () => {
   const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
@@ -21,7 +22,7 @@ const RandomLetters = () => {
       <div className="row justify-content-center">
         {
           randomLetters.map(letter => {
-            return (<div className="col-1" key={Math.random()}>{letter}</div>)
+            return (<div className="col-1 letter" key={Math.random()}>{letter}</div>)
           })
         }
       </div>
