@@ -16,13 +16,16 @@ const RandomLetters = () => {
   console.log(randomLetters)
 
   return (
-    <div>
-      random letters component
-      {
-        randomLetters.map(letter => {
-          return (<div>{letter}</div>)
-        })
-      }
+    <div className="container">
+      Random Letters Component
+      <div className="row">
+        {
+          randomLetters.map(letter => {
+            return (<div className="col">{letter}</div>)
+          })
+        }
+      </div>
+
     </div>
   );
 }
