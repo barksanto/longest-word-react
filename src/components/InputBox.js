@@ -36,7 +36,7 @@ const InputBox = () => {
   }
 
   return (
-    <div>
+    <div className="mt-3">
       <form id="nameform">
         <label htmlFor="fname">Your guess: </label>
         <input type="text" id="fname" name="fname" className="userInput" spellCheck="true" />
