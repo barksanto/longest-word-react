@@ -43,6 +43,7 @@ const InputBox = () => {
         <input type="text" id="fname" name="fname" className="userInput" spellCheck="true" />
       </form>
       <button type="submit" form="nameform" value="Submit" onClick={captureGuess}>Submit</button>
+      
     </div>
   );
 }
