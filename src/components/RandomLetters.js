@@ -18,10 +18,10 @@ const RandomLetters = () => {
   return (
     <div className="container">
       Random Letters Component
-      <div className="row">
+      <div className="row justify-content-center">
         {
           randomLetters.map(letter => {
-            return (<div className="col">{letter}</div>)
+            return (<div className="col-1">{letter}</div>)
           })
         }
       </div>
