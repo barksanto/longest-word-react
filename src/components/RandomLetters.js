@@ -19,7 +19,7 @@ const RandomLetters = () => {
   return (
     <div className="container">
       Random Letters Component
-      <div className="row justify-content-center">
+      <div className="row justify-content-between">
         {
           randomLetters.map(letter => {
             return (<div className="col-1 letter" key={Math.random()}>{letter}</div>)
