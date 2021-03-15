@@ -1,12 +1,8 @@
 import React from 'react';
+import RandomLetters from './RandomLetters'
 
 require('dotenv').config();
 console.log(process.env)
-
-// baseurl
-// appid
-// appkey
-
 
 const InputBox = () => {
 
@@ -17,7 +13,8 @@ const InputBox = () => {
   const captureGuess = (e) => {
     e.preventDefault();
     word = inputGuess.value;
-    let userGuess = word
+    // let userGuess = word;
+
     fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {
       "method": "GET",
       "headers": {
@@ -26,14 +23,16 @@ const InputBox = () => {
       }
     })
       .then(response => {
-        console.log(response);
+        // console.log(response.status);
+
+        if (response.status === 200) {
+          alert("This word exists!")
+        }
       })
       .catch(err => {
         console.error(err);
       });
-    console.log(word);
-    console.log(userGuess);
-    // inputGuess.value = '';
+    inputGuess.value = '';
   }
 
   return (
@@ -43,7 +42,7 @@ const InputBox = () => {
         <input type="text" id="fname" name="fname" className="userInput" spellCheck="true" />
       </form>
       <button type="submit" form="nameform" value="Submit" onClick={captureGuess}>Submit</button>
-      
+
     </div>
   );
 }
