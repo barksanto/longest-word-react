@@ -10,19 +10,20 @@ function App() {
   // initialize array
   const randomLetters = [];
   // 
-  
+
   for (let i = 0; i < 8; i++) {
     console.log(alphabet[Math.floor(Math.random() * alphabet.length)]);
     randomLetters.push(alphabet[Math.floor(Math.random() * alphabet.length)]);
   }
 
-  
 
-// code to capture user input in submit box
+
+  // code to capture user input in submit box
   let word = '';
-
+  // target input field
   const inputGuess = document.querySelector('.userInput');
 
+  // event that's triggered after submit
   const captureGuess = (e) => {
     e.preventDefault();
     word = inputGuess.value;
@@ -35,26 +36,28 @@ function App() {
       }
     })
       .then(response => {
+        // console log and alert success
         console.log(response.status);
-
         if (response.status === 200) {
           alert("This word exists!")
         }
       })
       .catch(err => {
         console.error(err);
-      }).then(()=>{
-        // inputGuess.value = '';
+      }).then(() => {
+        inputGuess.value = '';
       })
   }
 
-  
+
   return (
     <div className="App">
       <div>I'm the App component</div>
       <h1>Welcome to the longest word game!</h1>
+      {/* random letters passed to child as prop */}
       <RandomLetters letterData={randomLetters} />
-      <InputBox captureGuess={captureGuess}/>
+      {/* event handler passed to child as prop */}
+      <InputBox captureGuess={captureGuess} />
     </div>
   );
 }
