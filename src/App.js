@@ -10,13 +10,10 @@ function App() {
   // initialize array
   const randomLetters = [];
   // 
-
   for (let i = 0; i < 8; i++) {
     console.log(alphabet[Math.floor(Math.random() * alphabet.length)]);
     randomLetters.push(alphabet[Math.floor(Math.random() * alphabet.length)]);
   }
-
-
 
   // code to capture user input in submit box
   let word = '';
@@ -39,16 +36,23 @@ function App() {
         // console log and alert success
         console.log(response.status);
         if (response.status === 200) {
-          alert("This word exists!")
+          console.log("This word exists!")
         }
       })
       .catch(err => {
         console.error(err);
       }).then(() => {
-        inputGuess.value = '';
+        // inputGuess.value = '';
       })
+
+      const userSplitGuess = word.split('');
+      console.log(userSplitGuess)
   }
 
+ 
+  // if(){
+
+  // }
 
   return (
     <div className="App">
