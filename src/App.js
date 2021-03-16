@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './App.css';
 import InputBox from './components/InputBox';
 import RandomLetters from './components/RandomLetters';
@@ -11,7 +11,7 @@ function App() {
   const randomLetters = [];
   // 
   for (let i = 0; i < 8; i++) {
-    console.log(alphabet[Math.floor(Math.random() * alphabet.length)]);
+    // console.log(alphabet[Math.floor(Math.random() * alphabet.length)]);
     randomLetters.push(alphabet[Math.floor(Math.random() * alphabet.length)]);
   }
 
@@ -25,6 +25,25 @@ function App() {
     e.preventDefault();
     word = inputGuess.value;
 
+    const userSplitGuess = word.split('');
+
+    // const isIncluded = (currentValue) => {
+    //   if (randomLetters.includes(currentValue)) {
+    //     console.log('YEAHHHHH')
+    //   } else {
+    //     console.log("nooooo")
+    //   }
+    // };
+
+    // console.log(userSplitGuess.every(isIncluded));
+
+    userSplitGuess.every(letter => {
+      if(randomLetters.includes(letter)){
+        console.log('letter included!');
+      }
+    })
+
+
     fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {
       "method": "GET",
       "headers": {
@@ -34,7 +53,7 @@ function App() {
     })
       .then(response => {
         // console log and alert success
-        console.log(response.status);
+        // console.log(response.status);
         if (response.status === 200) {
           console.log("This word exists!")
         }
@@ -44,15 +63,7 @@ function App() {
       }).then(() => {
         // inputGuess.value = '';
       })
-
-      const userSplitGuess = word.split('');
-      console.log(userSplitGuess)
   }
-
- 
-  // if(){
-
-  // }
 
   return (
     <div className="App">
