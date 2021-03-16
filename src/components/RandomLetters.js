@@ -3,7 +3,6 @@ import '../styles/random-letter.css'
 
 const RandomLetters = ({ letterData }) => {
 
-
   return (
     <div className="container">
       Random Letters Component

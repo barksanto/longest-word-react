@@ -1,8 +1,7 @@
 import React from 'react';
-import RandomLetters from './RandomLetters'
 
 require('dotenv').config();
-console.log(process.env)
+// console.log(process.env)
 
 const InputBox = () => {
 
@@ -23,7 +22,7 @@ const InputBox = () => {
       }
     })
       .then(response => {
-        // console.log(response.status);
+        console.log(response.status);
 
         if (response.status === 200) {
           alert("This word exists!")
@@ -31,8 +30,9 @@ const InputBox = () => {
       })
       .catch(err => {
         console.error(err);
-      });
-    inputGuess.value = '';
+      }).then(()=>{
+        inputGuess.value = '';
+      })
   }
 
   return (
@@ -42,7 +42,6 @@ const InputBox = () => {
         <input type="text" id="fname" name="fname" className="userInput" spellCheck="true" />
       </form>
       <button type="submit" form="nameform" value="Submit" onClick={captureGuess}>Submit</button>
-
     </div>
   );
 }
