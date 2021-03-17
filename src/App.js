@@ -40,12 +40,8 @@ function App() {
     let goodWord = false;
     let points = 0;
 
-    userSplitGuess.forEach(letter => {
-      if (randomLetters.includes(letter)) {
-        trueCount++
-      }
-    })
-    
+    userSplitGuess.forEach(letter =>(randomLetters.includes(letter))?  trueCount++ : '');
+  
     if (trueCount === userSplitGuess.length) {
       console.log('SUCCESS: All letters used appear are a viable option')
       goodWord = true;
