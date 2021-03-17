@@ -15,34 +15,26 @@ function App() {
     randomLetters.push(alphabet[Math.floor(Math.random() * alphabet.length)]);
   }
 
-  // code to capture user input in submit box
-  let word = '';
-  // target input field
-  const inputGuess = document.querySelector('.userInput');
-
   // event that's triggered after submit
+  // check to see if each letter of userInput is included in the random letters array
   const captureGuess = (e) => {
+    // prevent default form reload
     e.preventDefault();
+    // code to capture user input in submit box
+    let word = '';
+    // select input field
+    const inputGuess = document.querySelector('.userInput');
+
     word = inputGuess.value;
 
     const userSplitGuess = word.split('');
 
-    // const isIncluded = (currentValue) => {
-    //   if (randomLetters.includes(currentValue)) {
-    //     console.log('YEAHHHHH')
-    //   } else {
-    //     console.log("nooooo")
-    //   }
-    // };
-
-    // console.log(userSplitGuess.every(isIncluded));
-
     userSplitGuess.every(letter => {
-      if(randomLetters.includes(letter)){
-        console.log('letter included!');
+      if (randomLetters.includes(letter)) {
+        console.log('letters included!');
+        return letter
       }
     })
-
 
     fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {
       "method": "GET",
