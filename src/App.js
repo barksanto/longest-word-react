@@ -37,13 +37,26 @@ function App() {
 
     // check if number of times true appears === length of userInput
     let trueCount = 0;
+    let goodWord = false;
+    let points = 0;
+
     userSplitGuess.forEach(letter => {
-      // console.log(randomLetters.includes(letter))
       if (randomLetters.includes(letter)) {
         trueCount++
       }
     })
-    console.log(trueCount);
+    
+    if (trueCount === userSplitGuess.length) {
+      console.log('SUCCESS: All letters used appear are a viable option')
+      goodWord = true;
+    } else {
+      console.log('ERROR: You used a letter that is not an option')
+    }
+
+    // check points
+    if (goodWord) {
+      console.log(`Here are your points: ${userSplitGuess.length * 2}`)
+    }
 
 
 
