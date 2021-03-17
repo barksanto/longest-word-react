@@ -41,18 +41,19 @@ function App() {
     let points = 0;
 
     userSplitGuess.forEach(letter =>(randomLetters.includes(letter))?  trueCount++ : '');
-  
-    if (trueCount === userSplitGuess.length) {
-      console.log('SUCCESS: All letters used appear are a viable option')
-      goodWord = true;
-    } else {
-      console.log('ERROR: You used a letter that is not an option')
-    }
+    (trueCount === userSplitGuess.length) ? goodWord = true : console.log('ERROR: You used a letter that is not an option');
+    (goodWord) ? console.log(`Here are your points: ${userSplitGuess.length * 2}`) : console.log('');
+    // if (trueCount === userSplitGuess.length) {
+    //   console.log('SUCCESS: All letters used appear are a viable option')
+    //   goodWord = true;
+    // } else {
+    //   console.log('ERROR: You used a letter that is not an option')
+    // }
 
     // check points
-    if (goodWord) {
-      console.log(`Here are your points: ${userSplitGuess.length * 2}`)
-    }
+    // if (goodWord) {
+    //   console.log(`Here are your points: ${userSplitGuess.length * 2}`)
+    // }
 
 
 
