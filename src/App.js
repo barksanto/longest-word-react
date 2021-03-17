@@ -24,17 +24,29 @@ function App() {
     let word = '';
     // select input field
     const inputGuess = document.querySelector('.userInput');
-
     word = inputGuess.value;
 
     const userSplitGuess = word.split('');
+    // userSplitGuess.every(letter => {
+    //   if (randomLetters.includes(letter)) {
+    //     console.log('letters included!');
+    //     return letter
+    //   }
+    // })
 
-    userSplitGuess.every(letter => {
+
+    // check if number of times true appears === length of userInput
+    let trueCount = 0;
+    userSplitGuess.forEach(letter => {
+      // console.log(randomLetters.includes(letter))
       if (randomLetters.includes(letter)) {
-        console.log('letters included!');
-        return letter
+        trueCount++
       }
     })
+    console.log(trueCount);
+
+
+
 
     fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {
       "method": "GET",
@@ -53,7 +65,7 @@ function App() {
       .catch(err => {
         console.error(err);
       }).then(() => {
-        // inputGuess.value = '';
+        inputGuess.value = '';
       })
   }
 
