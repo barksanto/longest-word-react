@@ -3,6 +3,11 @@ import './App.css';
 import InputBox from './components/InputBox';
 import RandomLetters from './components/RandomLetters';
 
+
+const calculateScore = (howManyTrue, wordIsGood) => {
+  return (wordIsGood) ? howManyTrue * 2 : '';
+}
+
 function App() {
 
   const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
@@ -27,36 +32,17 @@ function App() {
     word = inputGuess.value;
 
     const userSplitGuess = word.split('');
-    // userSplitGuess.every(letter => {
-    //   if (randomLetters.includes(letter)) {
-    //     console.log('letters included!');
-    //     return letter
-    //   }
-    // })
-
 
     // check if number of times true appears === length of userInput
     let trueCount = 0;
     let goodWord = false;
-    let points = 0;
+    // let points = 0;
 
-    userSplitGuess.forEach(letter =>(randomLetters.includes(letter))?  trueCount++ : '');
+    // if myguess includes letter in available add 1
+    userSplitGuess.forEach(letter => (randomLetters.includes(letter)) ? trueCount++ : '');
+    // if truecount is same as userguess.length change goodWord to true
     (trueCount === userSplitGuess.length) ? goodWord = true : console.log('ERROR: You used a letter that is not an option');
-    (goodWord) ? console.log(`Here are your points: ${userSplitGuess.length * 2}`) : console.log('');
-    // if (trueCount === userSplitGuess.length) {
-    //   console.log('SUCCESS: All letters used appear are a viable option')
-    //   goodWord = true;
-    // } else {
-    //   console.log('ERROR: You used a letter that is not an option')
-    // }
-
-    // check points
-    // if (goodWord) {
-    //   console.log(`Here are your points: ${userSplitGuess.length * 2}`)
-    // }
-
-
-
+    console.log(calculateScore(trueCount, goodWord));
 
     fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {
       "method": "GET",
