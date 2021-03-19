@@ -63,6 +63,7 @@ function App() {
         } else {
           alert('ERROR: You used a letter that is not an option')
         }
+        window.location.reload()
       })
       .catch(err => {
         console.error(err);
