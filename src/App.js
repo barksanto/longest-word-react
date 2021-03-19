@@ -5,8 +5,12 @@ import RandomLetters from './components/RandomLetters';
 
 
 const calculateScore = (howManyTrue, wordIsGood) => {
-  return (wordIsGood) ? howManyTrue * 2 : '';
+  return (wordIsGood) ? `Your score is ${howManyTrue * 2} points!` : '';
 }
+
+// const trueCounter = (trueCountVar, goodBoolVar) => {
+
+// }
 
 function App() {
 
@@ -27,7 +31,7 @@ function App() {
     e.preventDefault();
     // code to capture user input in submit box
     let word = '';
-    // select input field
+    // select input field element
     const inputGuess = document.querySelector('.userInput');
     word = inputGuess.value;
 
@@ -39,10 +43,12 @@ function App() {
     // let points = 0;
 
     // if myguess includes letter in available add 1
+
     userSplitGuess.forEach(letter => (randomLetters.includes(letter)) ? trueCount++ : '');
     // if truecount is same as userguess.length change goodWord to true
-    (trueCount === userSplitGuess.length) ? goodWord = true : console.log('ERROR: You used a letter that is not an option');
-    console.log(calculateScore(trueCount, goodWord));
+    (trueCount === userSplitGuess.length) ? goodWord = true : alert('ERROR: You used a letter that is not an option');
+    // trueCounter(trueCount, goodWord);
+    // console.log(calculateScore(trueCount, goodWord));
 
     fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {
       "method": "GET",
@@ -51,11 +57,11 @@ function App() {
         "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
       }
     })
-      .then(response => {
-        // console log and alert success
-        // console.log(response.status);
+      .then((response) => {
         if (response.status === 200) {
-          console.log("This word exists!")
+          alert(calculateScore(trueCount, goodWord))
+        } else {
+          alert('ERROR: You used a letter that is not an option')
         }
       })
       .catch(err => {
@@ -67,7 +73,6 @@ function App() {
 
   return (
     <div className="App">
-      <div>I'm the App component</div>
       <h1>Welcome to the longest word game!</h1>
       {/* random letters passed to child as prop */}
       <RandomLetters letterData={randomLetters} />

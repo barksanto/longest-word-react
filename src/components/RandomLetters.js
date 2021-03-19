@@ -5,7 +5,6 @@ const RandomLetters = ({ letterData }) => {
 
   return (
     <div className="container">
-      Random Letters Component
       <div className="row justify-content-between">
         {
           letterData.map(letter => {
