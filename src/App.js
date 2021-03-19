@@ -46,7 +46,7 @@ function App() {
 
     userSplitGuess.forEach(letter => (randomLetters.includes(letter)) ? trueCount++ : '');
     // if truecount is same as userguess.length change goodWord to true
-    (trueCount === userSplitGuess.length) ? goodWord = true : alert('ERROR: You used a letter that is not an option');
+    (trueCount === userSplitGuess.length) ? goodWord = true : console.log('used invalid letter');
     // trueCounter(trueCount, goodWord);
     // console.log(calculateScore(trueCount, goodWord));
 
