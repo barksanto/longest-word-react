@@ -3,7 +3,7 @@ import './App.css';
 import InputBox from './components/InputBox';
 import RandomLetters from './components/RandomLetters';
 
-const sound = new Sound("./sounds/Negative-sound-effect.mp3", 100, true);
+let correctSound = new Audio('https://res.cloudinary.com/duj93wpnu/video/upload/v1606842266/Correct_Answer_aalpwh.mp3');
 
 const calculateScore = (howManyTrue, wordIsGood) => {
   return (wordIsGood) ? `Nice word! Your score is ${howManyTrue * 2} points!` : '';
@@ -60,10 +60,10 @@ function App() {
     })
       .then((response) => {
         if (response.status === 200) {
+          correctSound.play();
           alert(calculateScore(trueCount, goodWord))
         } else {
           alert("Uh Oh! This word doesn't exist, or you used a letter that isn't an option")
-
         }
         window.location.reload()
       })
