@@ -5,7 +5,7 @@ import RandomLetters from './components/RandomLetters';
 
 
 const calculateScore = (howManyTrue, wordIsGood) => {
-  return (wordIsGood) ? `Your score is ${howManyTrue * 2} points!` : '';
+  return (wordIsGood) ? `Nice word! Your score is ${howManyTrue * 2} points!` : '';
 }
 
 // const trueCounter = (trueCountVar, goodBoolVar) => {
@@ -61,7 +61,7 @@ function App() {
         if (response.status === 200) {
           alert(calculateScore(trueCount, goodWord))
         } else {
-          alert('ERROR: You used a letter that is not an option')
+          alert("Uh Oh! This word doesn't exist, or you used a letter that isn't an option")
         }
         window.location.reload()
       })
