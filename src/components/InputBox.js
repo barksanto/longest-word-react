@@ -7,7 +7,7 @@ const InputBox = (props) => {
 
   return (
     <div className="mt-3 container">
-      <label htmlFor="fname" className="">Your guess: </label>
+      <label htmlFor="fname" className="input-label">Your guess: </label>
       <form id="nameform" className="row justify-content-center">
         <input type="text" id="fname" name="fname" className="userInput" spellCheck="true" />
       </form>
